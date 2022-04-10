@@ -1,30 +1,25 @@
 # **************************************************************************** #
 #                                                                              #
 #                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
+#    makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
 #    By: tbareich <tbareich@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/03/31 09:37:08 by tbareich          #+#    #+#              #
-#    Updated: 2022/04/10 02:33:17 by tbareich         ###   ########.fr        #
+#    Created: 2022/03/31 10:39:00 by tbareich          #+#    #+#              #
+#    Updated: 2022/04/10 02:33:56 by tbareich         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SHELL:=/bin/zsh
 
-NAME := computor
-MATHFT := mathft
+NAME := mathft.a
 
-MATHFT_DIR := mathft/
 SRCS_DIR := srcs/
 OBJS_DIR := objs/
 INCLUDES_DIR = includes/
 
-MATHFT_LIB := $(MATHFT_DIR)mathft.a
-HEADERS := -I$(INCLUDES_DIR) -I$(MATHFT_DIR)$(INCLUDES_DIR)
-
-HEADER := $(INCLUDES_DIR)computor.h
-SRCS := main.c reader.c usage.c
+HEADER := $(INCLUDES_DIR)mathft.h
+SRCS := ft_sqrt.c ft_pow.c ft_abs.c ft_nan.c ft_root.c
 OBJS := $(addprefix $(OBJS_DIR), $(SRCS:.c=.o))
 
 CFLAGS := -Wall -Wextra -Werror
@@ -40,31 +35,23 @@ GREY := \033[1;249m
 RESET := \033[0m
 
 
-all: $(MATHFT) $(NAME)
+all: $(NAME)
 
-$(NAME): $(MATHFT_LIB) $(OBJS) $(HEADER)
-	@$(CC) $(CFLAGS) $(MATHFT_LIB) $(OBJS) -o $(NAME) $(HEADERS)
+$(NAME): $(OBJS) $(HEADER)
+	@ar rc  $(NAME) $(OBJS) 
 	@echo "\n$(GREEN)$(NAME): created ✔$(RESET)"
-
-$(MATHFT):
-	@$(MAKE) -C $(MATHFT_DIR)
-
-$(MATHFT_LIB):
-	@$(MAKE) -C $(MATHFT)
 
 $(OBJS_DIR)%.o: $(SRCS_DIR)%.c $(HEADER)
 	@mkdir -p $(dir $@)
-	@$(CC) $(CFLAGS) -c -o $@ $< $(HEADERS)
+	@$(CC) $(CFLAGS) -c -o $@ $< -I$(INCLUDES_DIR)
 	@echo "$(WHITE).\c$(RESET)"
 
 clean:
-	@$(MAKE) clean -C $(MATHFT)
 	@rm -rf $(OBJS_DIR)
 
 fclean: clean
-	@$(MAKE) fclean -C $(MATHFT)
 	@rm -rf $(NAME)
 
 re: fclean all
 
-.PHONY: all clean fclean re $(MATHFT)
+.PHONY: all clean fclean re

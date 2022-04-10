@@ -1,27 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   computor.h                                         :+:      :+:    :+:   */
+/*   mathft.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tbareich <tbareich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/31 09:58:44 by tbareich          #+#    #+#             */
-/*   Updated: 2022/04/10 02:28:52 by tbareich         ###   ########.fr       */
+/*   Created: 2022/03/31 10:36:20 by tbareich          #+#    #+#             */
+/*   Updated: 2022/04/10 01:55:19 by tbareich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef COMPUTOR_H
-# define COMPUTOR_H
+#ifndef MATHFT_H
+# define MATHFT_H
 
-# include <stdio.h>
-# include <stdlib.h>
-# include <mathft.h>
+/*
+** macros
+*/
+
+# ifndef ROOT_APPR
+#  define ROOT_APPR 0.00000000001
+# endif
+
+# ifndef NAN
+#  define NAN 0.f / 0.f
+# endif
 
 /*
 ** functions
 */
 
-void	usage(void);
-void	reader(int ac, char **av);
+double		ft_root(double arg1, double arg2);
+double		ft_sqrt(double arg);
+
+double		ft_pow(double x, int y);
+
+int			ft_abs(int x);
+long long	ft_labs(long long x);
+double		ft_fabs(int x);
+
+char		ft_isnan(double x);
 
 #endif

@@ -1,27 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   computor.h                                         :+:      :+:    :+:   */
+/*   ft_abs.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tbareich <tbareich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/31 09:58:44 by tbareich          #+#    #+#             */
-/*   Updated: 2022/04/10 02:28:52 by tbareich         ###   ########.fr       */
+/*   Created: 2022/04/09 20:31:31 by tbareich          #+#    #+#             */
+/*   Updated: 2022/04/09 20:58:24 by tbareich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef COMPUTOR_H
-# define COMPUTOR_H
+int	ft_abs(int x)
+{
+	if (x >= 0)
+		return (x);
+	return (-x);
+}
 
-# include <stdio.h>
-# include <stdlib.h>
-# include <mathft.h>
+long long	ft_labs(long long x)
+{
+	if (x >= 0L)
+		return (x);
+	return (-x);
+}
 
-/*
-** functions
-*/
-
-void	usage(void);
-void	reader(int ac, char **av);
-
-#endif
+double	ft_fabs(double x)
+{
+	if (x >= .0)
+		return (x);
+	return (-x);
+}

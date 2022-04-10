@@ -1,27 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   computor.h                                         :+:      :+:    :+:   */
+/*   ft_sqrt.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tbareich <tbareich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/31 09:58:44 by tbareich          #+#    #+#             */
-/*   Updated: 2022/04/10 02:28:52 by tbareich         ###   ########.fr       */
+/*   Created: 2022/03/31 10:42:43 by tbareich          #+#    #+#             */
+/*   Updated: 2022/04/10 02:13:51 by tbareich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef COMPUTOR_H
-# define COMPUTOR_H
+#include <mathft.h>
 
-# include <stdio.h>
-# include <stdlib.h>
-# include <mathft.h>
+double	ft_sqrt(double arg)
+{
+	double	x;
+	double	root;
 
-/*
-** functions
-*/
-
-void	usage(void);
-void	reader(int ac, char **av);
-
-#endif
+	x = arg;
+	if (arg < .0)
+		return (NAN);
+	if (arg == .0)
+		return (arg);
+	while (1)
+	{
+		root = x - (ft_pow(x, 2) - arg) / (2 * x);
+		if (ft_isnan(root) || ft_fabs(x - root) < ROOT_APPR)
+			break ;
+		x = root;
+	}
+	return (root);
+}

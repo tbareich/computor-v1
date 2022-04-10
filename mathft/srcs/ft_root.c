@@ -1,20 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_root.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tbareich <tbareich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/31 09:33:50 by tbareich          #+#    #+#             */
-/*   Updated: 2022/03/31 10:06:34 by tbareich         ###   ########.fr       */
+/*   Created: 2022/04/10 01:37:25 by tbareich          #+#    #+#             */
+/*   Updated: 2022/04/10 02:08:03 by tbareich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <computor.h>
+#include <mathft.h>
 
-int	main(int ac, char **av)
+double	ft_root(double arg1, double arg2)
 {
-	(void) ac;
-	(void) av;
-	return (0);
+	double	x;
+	double	root;
+
+	x = arg1;
+	if (arg2 < 1)
+		return (NAN);
+	if (arg1 == .0)
+		return (arg1);
+	while (1)
+	{
+		root = x - (ft_pow(x, arg2) - arg1) / (arg2 * ft_pow(x, arg2 - 1));
+		if (ft_isnan(root) || ft_fabs(x - root) < ROOT_APPR)
+			break ;
+		x = root;
+	}
+	return (root);
 }

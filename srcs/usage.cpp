@@ -1,20 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   usage.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tbareich <tbareich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/31 09:33:50 by tbareich          #+#    #+#             */
-/*   Updated: 2022/04/10 02:34:22 by tbareich         ###   ########.fr       */
+/*   Created: 2022/03/31 10:26:19 by tbareich          #+#    #+#             */
+/*   Updated: 2022/04/11 20:44:33 by tbareich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <computor.h>
-#include <math.h>
 
-int	main(int ac, char **av)
+void	usage(void)
 {
-	reader(ac, av);
-	return (0);
+	std::cerr << "usage: ./computor \"equation\"" << endl;
+	exit(1);
 }

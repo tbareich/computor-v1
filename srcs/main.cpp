@@ -1,19 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   usage.c                                            :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tbareich <tbareich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/31 10:26:19 by tbareich          #+#    #+#             */
-/*   Updated: 2022/04/10 02:26:17 by tbareich         ###   ########.fr       */
+/*   Created: 2022/03/31 09:33:50 by tbareich          #+#    #+#             */
+/*   Updated: 2022/04/11 20:29:32 by tbareich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <computor.h>
+#include <math.h>
 
-void	usage(void)
+int	main(int ac, char **av)
 {
-	dprintf(2, "usage: ./computor \"equation\"\n");
-	exit(1);
+	reader(ac, av);
+	return (0);
 }

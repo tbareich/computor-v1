@@ -6,7 +6,7 @@
 #    By: tbareich <tbareich@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/31 09:37:08 by tbareich          #+#    #+#              #
-#    Updated: 2022/04/10 02:33:17 by tbareich         ###   ########.fr        #
+#    Updated: 2022/04/11 20:46:04 by tbareich         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,11 +24,11 @@ MATHFT_LIB := $(MATHFT_DIR)mathft.a
 HEADERS := -I$(INCLUDES_DIR) -I$(MATHFT_DIR)$(INCLUDES_DIR)
 
 HEADER := $(INCLUDES_DIR)computor.h
-SRCS := main.c reader.c usage.c
-OBJS := $(addprefix $(OBJS_DIR), $(SRCS:.c=.o))
+SRCS := main.cpp reader.cpp usage.cpp
+OBJS := $(addprefix $(OBJS_DIR), $(SRCS:.cpp=.o))
 
 CFLAGS := -Wall -Wextra -Werror
-CC := gcc
+CC := g++
 
 # Colors
 GREEN := \033[1;32m
@@ -52,7 +52,7 @@ $(MATHFT):
 $(MATHFT_LIB):
 	@$(MAKE) -C $(MATHFT)
 
-$(OBJS_DIR)%.o: $(SRCS_DIR)%.c $(HEADER)
+$(OBJS_DIR)%.o: $(SRCS_DIR)%.cpp $(HEADER)
 	@mkdir -p $(dir $@)
 	@$(CC) $(CFLAGS) -c -o $@ $< $(HEADERS)
 	@echo "$(WHITE).\c$(RESET)"

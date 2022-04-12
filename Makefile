@@ -6,7 +6,7 @@
 #    By: tbareich <tbareich@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/31 09:37:08 by tbareich          #+#    #+#              #
-#    Updated: 2022/04/11 20:46:04 by tbareich         ###   ########.fr        #
+#    Updated: 2022/04/11 21:08:58 by tbareich         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,7 @@ HEADER := $(INCLUDES_DIR)computor.h
 SRCS := main.cpp reader.cpp usage.cpp
 OBJS := $(addprefix $(OBJS_DIR), $(SRCS:.cpp=.o))
 
-CFLAGS := -Wall -Wextra -Werror
+# CFLAGS := -Wall -Wextra -Werror
 CC := g++
 
 # Colors

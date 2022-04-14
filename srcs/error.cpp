@@ -1,25 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_max.c                                           :+:      :+:    :+:   */
+/*   error.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tbareich <tbareich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/12 00:07:02 by tbareich          #+#    #+#             */
-/*   Updated: 2022/04/12 02:23:34 by tbareich         ###   ########.fr       */
+/*   Created: 2022/04/14 02:03:58 by tbareich          #+#    #+#             */
+/*   Updated: 2022/04/14 02:04:50 by tbareich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_max(int x, int y)
-{
-	if (x >= y)
-		return (x);
-	return (y);
-}
+#include <computor.h>
 
-double	ft_dmax(double x, double y)
+void	error(std::string msg)
 {
-	if (x >= y)
-		return (x);
-	return (y);
+	std::cerr << msg << endl;
+	exit(1);
 }

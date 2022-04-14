@@ -6,7 +6,7 @@
 #    By: tbareich <tbareich@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/31 10:39:00 by tbareich          #+#    #+#              #
-#    Updated: 2022/04/12 00:10:48 by tbareich         ###   ########.fr        #
+#    Updated: 2022/04/12 18:50:58 by tbareich         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,7 +38,7 @@ RESET := \033[0m
 all: $(NAME)
 
 $(NAME): $(OBJS) $(HEADER)
-	@ar rc  $(NAME) $(OBJS) 
+	@ar rc $(NAME) $(OBJS) 
 	@echo "\n$(GREEN)$(NAME): created ✔$(RESET)"
 
 $(OBJS_DIR)%.o: $(SRCS_DIR)%.c $(HEADER)

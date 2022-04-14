@@ -6,7 +6,7 @@
 /*   By: tbareich <tbareich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/31 10:42:43 by tbareich          #+#    #+#             */
-/*   Updated: 2022/04/10 02:13:51 by tbareich         ###   ########.fr       */
+/*   Updated: 2022/04/12 02:05:48 by tbareich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ double	ft_sqrt(double arg)
 	while (1)
 	{
 		root = x - (ft_pow(x, 2) - arg) / (2 * x);
-		if (ft_isnan(root) || ft_fabs(x - root) < ROOT_APPR)
+		if (ft_isnan(root) || ft_dabs(x - root) < ROOT_APPR)
 			break ;
 		x = root;
 	}

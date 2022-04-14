@@ -6,18 +6,18 @@
 /*   By: tbareich <tbareich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 00:08:36 by tbareich          #+#    #+#             */
-/*   Updated: 2022/04/12 00:09:00 by tbareich         ###   ########.fr       */
+/*   Updated: 2022/04/12 02:18:09 by tbareich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	ft_min(int x, int y)
+int	ft_min(int x, int y)
 {
 	if (x <= y)
 		return (x);
 	return (y);
 }
 
-char	ft_fmin(double x, double y)
+double	ft_dmin(double x, double y)
 {
 	if (x <= y)
 		return (x);

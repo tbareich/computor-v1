@@ -1,25 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_max.c                                           :+:      :+:    :+:   */
+/*   equation_validation.cpp                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tbareich <tbareich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/12 00:07:02 by tbareich          #+#    #+#             */
-/*   Updated: 2022/04/12 02:23:34 by tbareich         ###   ########.fr       */
+/*   Created: 2022/04/14 00:56:47 by tbareich          #+#    #+#             */
+/*   Updated: 2022/04/14 02:05:34 by tbareich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_max(int x, int y)
-{
-	if (x >= y)
-		return (x);
-	return (y);
-}
+#include <computor.h>
 
-double	ft_dmax(double x, double y)
+void	equation_validation(std::string str)
 {
-	if (x >= y)
-		return (x);
-	return (y);
+	std::smatch	match;
+	std::regex	exp;
+
+	exp = "^(((\\+|-|)(?=\\d+(\\.\\d+)?|[Xx])(\\d+(\\.\\d+)?)?\\*?([Xx](\\^{1}\
+\\d+)?)?))+={1}(((\\+|-|)(?=\\d+(\\.\\d+)?|[Xx])(\\d+(\\.\\d+)?)?\\*?([Xx](\
+\\^{1}\\d+)?)?))+$";
+	if (std::regex_match(str, exp))
+		return ;
+	error("Bad format");
 }

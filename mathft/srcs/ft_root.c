@@ -6,7 +6,7 @@
 /*   By: tbareich <tbareich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/10 01:37:25 by tbareich          #+#    #+#             */
-/*   Updated: 2022/04/11 01:28:20 by tbareich         ###   ########.fr       */
+/*   Updated: 2022/04/12 02:05:50 by tbareich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ double	ft_root(double arg1, double arg2)
 	while (1)
 	{
 		root = x - (ft_pow(x, arg2) - arg1) / (arg2 * ft_pow(x, arg2 - 1));
-		if (ft_isnan(root) || ft_fabs(x - root) < ROOT_APPR)
+		if (ft_isnan(root) || ft_dabs(x - root) < ROOT_APPR)
 			break ;
 		x = root;
 	}

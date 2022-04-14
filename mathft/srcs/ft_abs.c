@@ -6,7 +6,7 @@
 /*   By: tbareich <tbareich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/09 20:31:31 by tbareich          #+#    #+#             */
-/*   Updated: 2022/04/09 20:58:24 by tbareich         ###   ########.fr       */
+/*   Updated: 2022/04/13 01:21:41 by tbareich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ long long	ft_labs(long long x)
 	return (-x);
 }
 
-double	ft_fabs(double x)
+double	ft_dabs(double x)
 {
 	if (x >= .0)
 		return (x);

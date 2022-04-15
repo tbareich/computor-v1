@@ -6,7 +6,7 @@
 #    By: tbareich <tbareich@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/31 09:37:08 by tbareich          #+#    #+#              #
-#    Updated: 2022/04/14 02:06:42 by tbareich         ###   ########.fr        #
+#    Updated: 2022/04/15 03:31:55 by tbareich         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,16 +19,19 @@ MATHFT_DIR := mathft/
 INCLUDES_DIR = includes/
 OBJS_DIR := objs/
 SRCS_DIR := srcs/
-PARSER_DIR := parser/
+PARSERS_DIR := parsers/
+HELPERS_DIR := helpers/
 
 MATHFT_LIB := $(MATHFT_DIR)mathft.a
 HEADERS := -I$(INCLUDES_DIR) -I$(MATHFT_DIR)$(INCLUDES_DIR)
 
 HEADER := $(INCLUDES_DIR)computor.h
-SRCS := main.cpp reader.cpp usage.cpp error.cpp
-PARSER_SRCS = find_terms.cpp parse_equation.cpp equation_validation.cpp
+SRCS := main.cpp reader.cpp solve.cpp
+PARSERS_SRCS = find_terms.cpp parse_term.cpp check_equation_format.cpp
+HELPERS_SRCS = usage.cpp error.cpp 
 OBJS := $(addprefix $(OBJS_DIR), $(SRCS:.cpp=.o)) \
-		$(addprefix $(OBJS_DIR)$(PARSER_DIR), $(PARSER_SRCS:.cpp=.o))
+		$(addprefix $(OBJS_DIR)$(PARSERS_DIR), $(PARSERS_SRCS:.cpp=.o)) \
+		$(addprefix $(OBJS_DIR)$(HELPERS_DIR), $(HELPERS_SRCS:.cpp=.o))
 
 # CFLAGS := -Wall -Wextra -Werror
 CC := g++

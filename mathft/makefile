@@ -6,7 +6,7 @@
 #    By: tbareich <tbareich@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/31 10:39:00 by tbareich          #+#    #+#              #
-#    Updated: 2022/04/15 09:36:13 by tbareich         ###   ########.fr        #
+#    Updated: 2022/04/15 09:48:28 by tbareich         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ INCLUDES_DIR = includes/
 
 HEADER := $(INCLUDES_DIR)mathft.h
 SRCS := ft_sqrt.c ft_pow.c ft_abs.c ft_nan.c ft_root.c ft_max.c ft_min.c \
-	ft_gcd.c ft_round.c ft_floor.c
+	ft_gcd.c ft_round.c ft_floor.c to_fraction.c
 OBJS := $(addprefix $(OBJS_DIR), $(SRCS:.c=.o))
 
 CFLAGS := -Wall -Wextra -Werror

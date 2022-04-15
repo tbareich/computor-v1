@@ -6,7 +6,7 @@
 /*   By: tbareich <tbareich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/31 10:36:20 by tbareich          #+#    #+#             */
-/*   Updated: 2022/04/15 09:41:19 by tbareich         ###   ########.fr       */
+/*   Updated: 2022/04/15 10:56:23 by tbareich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@
 # endif
 
 # ifndef FRACTION_PRECISION
-#  define FRACTION_PRECISION 1e9
+#  define FRACTION_PRECISION 1e2
 # endif
 
 /*

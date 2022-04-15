@@ -6,9 +6,11 @@
 /*   By: tbareich <tbareich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/15 03:26:57 by tbareich          #+#    #+#             */
-/*   Updated: 2022/04/15 03:29:46 by tbareich         ###   ########.fr       */
+/*   Updated: 2022/04/15 10:15:38 by tbareich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include <mathft.h>
 
 int	ft_gcd(int a, int b)
 {

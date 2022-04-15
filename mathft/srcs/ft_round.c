@@ -6,7 +6,7 @@
 /*   By: tbareich <tbareich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/15 09:21:09 by tbareich          #+#    #+#             */
-/*   Updated: 2022/04/15 09:22:47 by tbareich         ###   ########.fr       */
+/*   Updated: 2022/04/15 10:17:40 by tbareich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,7 @@
 
 int	ft_round(double x)
 {
-	return (x + .5);
+	if (x > 0)
+		return (x + .5);
+	return (x - .5);
 }

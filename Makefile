@@ -6,7 +6,7 @@
 #    By: tbareich <tbareich@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/31 09:37:08 by tbareich          #+#    #+#              #
-#    Updated: 2022/04/16 00:47:54 by tbareich         ###   ########.fr        #
+#    Updated: 2022/04/16 09:55:41 by tbareich         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,8 @@ HEADERS := -I$(INCLUDES_DIR) -I$(MATHFT_DIR)$(INCLUDES_DIR)
 HEADER := $(INCLUDES_DIR)computor.h
 SRCS := main.cpp reader.cpp solve.cpp
 PARSERS_SRCS = find_terms.cpp parse_term.cpp check_equation_format.cpp
-HELPERS_SRCS = usage.cpp error.cpp print_solutions.cpp set_options.cpp
+HELPERS_SRCS = usage.cpp error.cpp print_solutions.cpp set_options.cpp \
+	fraction_str.cpp
 OBJS := $(addprefix $(OBJS_DIR), $(SRCS:.cpp=.o)) \
 		$(addprefix $(OBJS_DIR)$(PARSERS_DIR), $(PARSERS_SRCS:.cpp=.o)) \
 		$(addprefix $(OBJS_DIR)$(HELPERS_DIR), $(HELPERS_SRCS:.cpp=.o))

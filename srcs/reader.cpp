@@ -6,7 +6,7 @@
 /*   By: tbareich <tbareich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/31 10:24:52 by tbareich          #+#    #+#             */
-/*   Updated: 2022/04/16 07:00:50 by tbareich         ###   ########.fr       */
+/*   Updated: 2022/04/16 13:15:06 by tbareich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,35 +17,28 @@ static void	print_equation(t_equation equation)
 	double	first_constant;
 
 	first_constant = 1;
-	std::cout << "Reduced form: ";
+	std::cout << "\n-- Reduced form: ";
 	for (int i = 0; i < 3; ++i)
 	{
 		if (!first_constant)
 		{
-			if (equation.constants[i] < .0)
+			if (equation.coeffs[i] < .0)
 				std::cout << " - ";
-			else if (equation.constants[i] > .0)
+			else if (equation.coeffs[i] > .0)
 				std::cout << " + ";
 		}
-		else if (equation.constants[i] < .0)
+		else if (equation.coeffs[i] < .0)
 			std::cout << "-";
-		if (equation.constants[i] != .0)
+		if (equation.coeffs[i] != .0)
 		{
-			if (ft_dabs(equation.constants[i]) != 1)
-				std::cout << ft_dabs(equation.constants[i]);
-			if (i != 0 && ft_dabs(equation.constants[i]) != 1)
-				std::cout << " * ";
-			if (i != 0)
-				std::cout << equation.indeterminate_symbol;
-			if (i != 1 && i != 0)
-				std::cout << "^" << i;
+			std::cout << ft_dabs(equation.coeffs[i]) << " * "
+				<< equation.indeterminate_symbol << "^" << i;
 			first_constant = 0;
 		}
 	}
 	if (first_constant)
 		std::cout << "0";
-	std::cout << " = 0" << endl;
-	std::cout << "Polynomial degree: ";
+	std::cout << " = 0" << endl << "\n-- Polynomial degree: ";
 	if (equation.degree >= 0)
 		std::cout << equation.degree << endl;
 	else
@@ -54,9 +47,9 @@ static void	print_equation(t_equation equation)
 
 static void	init_equation(t_equation *equation)
 {
-	equation->constants[0] = .0;
-	equation->constants[1] = .0;
-	equation->constants[2] = .0;
+	equation->coeffs[0] = .0;
+	equation->coeffs[1] = .0;
+	equation->coeffs[2] = .0;
 	equation->degree = -1;
 	equation->indeterminate_symbol = 0;
 	equation->position = LEFT;

@@ -6,7 +6,7 @@
 /*   By: tbareich <tbareich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 22:34:07 by tbareich          #+#    #+#             */
-/*   Updated: 2022/04/16 07:00:51 by tbareich         ###   ########.fr       */
+/*   Updated: 2022/04/16 10:31:04 by tbareich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,19 +17,19 @@ static void	update_equation(t_equation *equation, int degree, double constant)
 	equation->degree = ft_max(equation->degree, degree);
 	if (degree == 0)
 	{
-		equation->constants[0] += (equation->position * constant);
-		if (equation->constants[0] == 0)
-			if (equation->constants[2] == 0 && equation->constants[1] == 0)
+		equation->coeffs[0] += (equation->position * constant);
+		if (equation->coeffs[0] == 0)
+			if (equation->coeffs[2] == 0 && equation->coeffs[1] == 0)
 				equation->degree = -1;
 	}
 	else if (degree == 1)
 	{
-		equation->constants[1] += (equation->position * constant);
-		if (equation->constants[1] == 0)
+		equation->coeffs[1] += (equation->position * constant);
+		if (equation->coeffs[1] == 0)
 		{
-			if (equation->constants[2] != 0)
+			if (equation->coeffs[2] != 0)
 				equation->degree = 2;
-			else if (equation->constants[0] != 0)
+			else if (equation->coeffs[0] != 0)
 				equation->degree = 0;
 			else 
 				equation->degree = -1;
@@ -37,12 +37,12 @@ static void	update_equation(t_equation *equation, int degree, double constant)
 	}
 	else if (degree == 2)
 	{
-		equation->constants[2] += (equation->position * constant);
-		if (equation->constants[2] == 0)
+		equation->coeffs[2] += (equation->position * constant);
+		if (equation->coeffs[2] == 0)
 		{
-			if (equation->constants[1] != 0)
+			if (equation->coeffs[1] != 0)
 				equation->degree = 1;
-			else if (equation->constants[0] != 0)
+			else if (equation->coeffs[0] != 0)
 				equation->degree = 0;
 			else 
 				equation->degree = -1;

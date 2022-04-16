@@ -6,7 +6,7 @@
 /*   By: tbareich <tbareich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/31 09:33:50 by tbareich          #+#    #+#             */
-/*   Updated: 2022/04/14 21:20:42 by tbareich         ###   ########.fr       */
+/*   Updated: 2022/04/16 01:11:11 by tbareich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,12 @@
 
 int	main(int ac, char **av)
 {
-	t_equation equation;
+	t_equation	equation;
+	int			options;
 
+	set_options(ac, av, &options);
 	reader(ac, av, &equation);
-	solve(equation);
+	solve(equation, options);
 	ft_sqrt(2);
 	return (0);
 }

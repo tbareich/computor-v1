@@ -6,7 +6,7 @@
 /*   By: tbareich <tbareich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/31 10:26:19 by tbareich          #+#    #+#             */
-/*   Updated: 2022/04/12 02:29:41 by tbareich         ###   ########.fr       */
+/*   Updated: 2022/04/16 01:18:09 by tbareich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,10 @@
 
 void	usage(void)
 {
-	std::cerr << "usage: ./computor \"equation\"" << endl;
+	std::cerr << "Usage: " << endl
+	<< "\t./computor [-f|--fraction|-h|--help] <equation>" << endl;
+	std::cerr << "Options:" << endl
+	<< "\t-f --fraction\tDisplay solution(s) as an irreducible fraction."
+	<< endl << "\t-h --help\tShow this screen." << endl;
 	exit(1);
 }

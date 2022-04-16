@@ -6,7 +6,7 @@
 #    By: tbareich <tbareich@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/31 09:37:08 by tbareich          #+#    #+#              #
-#    Updated: 2022/04/16 09:55:41 by tbareich         ###   ########.fr        #
+#    Updated: 2022/04/16 13:32:27 by tbareich         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,7 +34,7 @@ OBJS := $(addprefix $(OBJS_DIR), $(SRCS:.cpp=.o)) \
 		$(addprefix $(OBJS_DIR)$(PARSERS_DIR), $(PARSERS_SRCS:.cpp=.o)) \
 		$(addprefix $(OBJS_DIR)$(HELPERS_DIR), $(HELPERS_SRCS:.cpp=.o))
 
-# CFLAGS := -Wall -Wextra -Werror
+CFLAGS := -Wall -Wextra -Werror
 CC := g++
 
 # Colors

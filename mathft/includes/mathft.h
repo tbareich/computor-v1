@@ -6,7 +6,7 @@
 /*   By: tbareich <tbareich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/31 10:36:20 by tbareich          #+#    #+#             */
-/*   Updated: 2022/04/16 11:19:20 by tbareich         ###   ########.fr       */
+/*   Updated: 2022/04/16 13:30:19 by tbareich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,9 +51,10 @@ double		ft_pow(double x, int y);
 int			ft_abs(int x);
 long long	ft_labs(long long x);
 double		ft_dabs(double x);
+
 int			ft_round(double x);
 int			ft_floor(double x);
-
+int			ft_ceil(double x);
 
 char		ft_isnan(double x);
 

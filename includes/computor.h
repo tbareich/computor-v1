@@ -6,7 +6,7 @@
 /*   By: tbareich <tbareich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/31 09:58:44 by tbareich          #+#    #+#             */
-/*   Updated: 2022/04/15 04:28:39 by tbareich         ###   ########.fr       */
+/*   Updated: 2022/04/16 07:00:52 by tbareich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,8 @@ extern "C"
 # define LEFT 1
 # define RIGHT -1
 
+#define FRACTION_OPTION 1
+
 /*
 ** Error msgs
 */
@@ -46,6 +48,9 @@ extern "C"
 # define DEGREE_LIMITS_ERROR "the polynomial degree is strictly greater than 2\
 , I can't solve."
 # define MULTI_INDETERS_ERROR "multiple indeterminates are not allowed."
+# define EXPONENT_LIMIT_ERROR "exponent out of range."
+# define CONSTANT_LIMIT_ERROR "constant out of range."
+# define UNKNOWN_ERROR "unknown error."
 
 /*
 ** structures
@@ -54,7 +59,7 @@ typedef struct	s_equation
 {
 	double	constants[3];
 	int		degree;
-	char	p_indeterminate;
+	char	indeterminate_symbol;
 	char	position;
 }	t_equation;
 
@@ -65,10 +70,13 @@ typedef struct	s_equation
 void	usage(void);
 void	reader(int ac, char **av, t_equation *equation);
 void	error(std::string msg);
-void	solve(t_equation equation);
+void	solve(t_equation equation, int options);
 
 void	parse_term(std::string str, t_equation *equation);
 void	find_terms(std::string str, t_equation *equation);
 void	check_equation_format(std::string str);
+
+void	print_solutions(t_equation equation, int options);
+void	set_options(int ac, char **av, int *options);
 
 #endif

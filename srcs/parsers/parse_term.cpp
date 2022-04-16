@@ -6,7 +6,7 @@
 /*   By: tbareich <tbareich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 22:34:07 by tbareich          #+#    #+#             */
-/*   Updated: 2022/04/15 10:54:43 by tbareich         ###   ########.fr       */
+/*   Updated: 2022/04/16 07:00:51 by tbareich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,27 +56,43 @@ void	parse_term(std::string str, t_equation *equation)
 	std::smatch	res;
 	double		constant;
 	int			degree;
-	char		p_indeterminate;
+	char		indeterminate_symbol;
 	
-	constant = 1;
-	degree = 0;
-	exp = "^(\\+|-)?\\d+(\\.\\d+)?";
-	if (regex_search(str.cbegin(), str.cend(), res, exp))
-		constant = std::stod(res.str());
-	exp = "[A-z]{1}(\\^\\d+)?$";
-	if (regex_search(str.cbegin(), str.cend(), res, exp))
+	try
 	{
-		p_indeterminate = std::toupper(res.str(0)[0]);
-		if (equation->p_indeterminate == 0)
-			equation->p_indeterminate = p_indeterminate;
-		else if (equation->p_indeterminate != p_indeterminate)
-			error(MULTI_INDETERS_ERROR);
-		degree = 1;
-		exp = "\\^";
-		if (regex_search(res.prefix().first, str.cend(), res, exp))
-			degree = std::stoi(res.suffix().str());
+		constant = 1;
+		degree = 0;
+		exp = "^(\\+|-)?\\d+(\\.\\d+)?";
+		if (regex_search(str.cbegin(), str.cend(), res, exp))
+			constant = std::stod(res.str());
+		else if (str[0] == '-')
+			constant *= -1;
+		exp = "[A-z]{1}(\\^\\d+)?$";
+		if (regex_search(str.cbegin(), str.cend(), res, exp))
+		{
+			indeterminate_symbol = std::toupper(res.str(0)[0]);
+			if (equation->indeterminate_symbol == 0)
+				equation->indeterminate_symbol = indeterminate_symbol;
+			else if (equation->indeterminate_symbol != indeterminate_symbol)
+				error(MULTI_INDETERS_ERROR);
+			degree = 1;
+			exp = "\\^";
+			if (regex_search(res.prefix().first, str.cend(), res, exp))
+				degree = std::stoi(res.suffix().str());
+		}
+		if (degree > 2 && constant != 0)
+			error(DEGREE_LIMITS_ERROR);
+		else if (degree > 2 && constant == 0)
+			degree = -1;
+		update_equation(equation, degree, constant);
 	}
-	if (degree > 2)
-		error(DEGREE_LIMITS_ERROR);
-	update_equation(equation, degree, constant);
+	catch(const std::exception& e)
+	{
+		if (std::strcmp(e.what(), "stoi: out of range") == 0)
+			error(EXPONENT_LIMIT_ERROR);
+		else if (std::strcmp(e.what(), "stod: out of range") == 0)
+			error(CONSTANT_LIMIT_ERROR);
+		else
+			error(UNKNOWN_ERROR);
+	}
 }

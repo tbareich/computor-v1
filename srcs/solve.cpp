@@ -6,7 +6,7 @@
 /*   By: tbareich <tbareich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/14 21:19:17 by tbareich          #+#    #+#             */
-/*   Updated: 2022/04/16 10:41:05 by tbareich         ###   ########.fr       */
+/*   Updated: 2022/04/17 01:28:38 by tbareich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@ void	solve(t_equation equation, int options)
 		std::cout << "This problem have no solution." << endl;
 	else if (equation.degree == 1)
 	{
-		std::cout << "The solution is: " << endl
-				<< equation.indeterminate_symbol << "= ";
+		std::cout << "-- The solution is: "
+			<< equation.indeterminate_symbol << "= ";
 		if (options & FRACTION_OPTION)
 		{
 			fraction = to_fraction(-equation.coeffs[0] / equation.coeffs[1]);

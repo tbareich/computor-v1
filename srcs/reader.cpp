@@ -6,7 +6,7 @@
 /*   By: tbareich <tbareich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/31 10:24:52 by tbareich          #+#    #+#             */
-/*   Updated: 2022/04/16 13:15:06 by tbareich         ###   ########.fr       */
+/*   Updated: 2022/04/17 01:52:40 by tbareich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,17 +32,18 @@ static void	print_equation(t_equation equation)
 		if (equation.coeffs[i] != .0)
 		{
 			std::cout << ft_dabs(equation.coeffs[i]) << " * "
-				<< equation.indeterminate_symbol << "^" << i;
+				<< (equation.indeterminate_symbol
+				? equation.indeterminate_symbol : 'X') << "^" << i;
 			first_constant = 0;
 		}
 	}
 	if (first_constant)
-		std::cout << "0";
+		std::cout << "0 * " << equation.indeterminate_symbol << " ^ (−∞)";
 	std::cout << " = 0" << endl << "\n-- Polynomial degree: ";
 	if (equation.degree >= 0)
-		std::cout << equation.degree << endl;
+		std::cout << equation.degree << "\n\n";
 	else
-		std::cout << "undefined" << endl;
+		std::cout << "−∞\n\n";
 }
 
 static void	init_equation(t_equation *equation)

@@ -6,7 +6,7 @@
 /*   By: tbareich <tbareich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/15 11:08:38 by tbareich          #+#    #+#             */
-/*   Updated: 2022/04/16 13:18:01 by tbareich         ###   ########.fr       */
+/*   Updated: 2022/04/17 04:42:44 by tbareich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,15 +41,29 @@ static void	print_solution(t_equation equation, double	discriminant)
 		std::cout << endl << equation.indeterminate_symbol 
 			<< "1= -b / (2 * a) + sqrt(Δ) / (2 * a) => ";
 		std::cout << equation.indeterminate_symbol 
-			<< "1= "<< x << " + " << y << endl;
+			<< "1= "<< x << " + ";
+		if (y < 0)
+			std::cout << "(";
+		std::cout  << y;
+		if (y < 0)
+			std::cout << ")\n";
+		else
+			std::cout << endl;
 		std::cout << "                                     => ";
 		std::cout << equation.indeterminate_symbol << "1= " << x + y << endl;
 		std::cout  << endl<< equation.indeterminate_symbol 
 			<< "2= -b / (2 * a) - sqrt(Δ) / (2 * a) => ";
 		std::cout << equation.indeterminate_symbol 
-			<< "2= "<< x << " - " << y << endl;
-		std::cout << "                                     => ";
-		std::cout << equation.indeterminate_symbol << "2= " << x - y << endl;
+			<< "2= "<< x << " - ";
+		if (y < 0)
+			std::cout << "(";
+		std::cout  << y;
+		if (y < 0)
+			std::cout << ")\n";
+		else
+			std::cout << endl;
+		std::cout << "                                     => "
+			<< equation.indeterminate_symbol << "2= " << x - y << endl;
 	}
 	else
 	{
@@ -59,16 +73,32 @@ static void	print_solution(t_equation equation, double	discriminant)
 		if (x != .0 )
 			std::cout << x;
 		if (y != 0)
-			std::cout << (x != .0 ? " + " : "") << "i * "
-				<< ft_dabs(y) << endl;
+		{	
+			std::cout << (x != .0 ? " + " : "") << "i * ";
+			if (y < 0)
+				std::cout << "(";
+			std::cout  << y;
+			if (y < 0)
+				std::cout << ")\n";
+			else 
+				std::cout << endl;
+		}
 		std::cout << endl << equation.indeterminate_symbol 
-			<< "2= -b / (2 * a) - i * sqrt(abs(Δ)) / (2 * a) => ";
-		std::cout << equation.indeterminate_symbol << "2= ";
+			<< "2= -b / (2 * a) - i * sqrt(abs(Δ)) / (2 * a) => "
+			<< equation.indeterminate_symbol << "2= ";
 		if (x != .0 )
 			std::cout << x;
 		if (y != 0)
-			std::cout << (x != .0 ? " - " : "") << "i * "
-				<< ft_dabs(y) << endl;
+		{
+			std::cout << (x != .0 ? " - " : "") << "i * ";
+			if (y < 0)
+				std::cout << "(";
+			std::cout  << y;
+			if (y < 0)
+				std::cout << ")\n";
+			else 
+				std::cout << endl;
+		}
 	}
 }
 
@@ -85,21 +115,34 @@ static void	print_solution_fraction(t_equation equation, double	discriminant)
 	if (discriminant == 0)
 		std::cout
 			<< equation.indeterminate_symbol << "= "
-			<< fraction_str(to_fraction(-equation.coeffs[1]
-				/ (2 * equation.coeffs[2]))) << endl;
+			<< fraction_str(to_fraction(x)) << endl;
 	else if (discriminant > 0)
 	{
 		std::cout << endl << equation.indeterminate_symbol 
 			<< "1= -b / (2 * a) + sqrt(Δ) / (2 * a) => ";
 		std::cout << equation.indeterminate_symbol 
-			<< "1= "<< x << " + " << y << endl;
+			<< "1= "<< x << " + ";
+		if (y < 0)
+			std::cout << "(";
+		std::cout  << y;
+		if (y < 0)
+			std::cout << ")\n";
+		else
+			std::cout << endl;
 		std::cout << "                                     => ";
 		std::cout << equation.indeterminate_symbol << "1= "
 			<< fraction_str(to_fraction(x + y)) << endl;
 		std::cout << endl << equation.indeterminate_symbol 
 			<< "2= -b / (2 * a) - sqrt(Δ) / (2 * a) => ";
 		std::cout << equation.indeterminate_symbol 
-			<< "2= "<< x << " - " << y << endl;
+			<< "2= "<< x << " - ";
+		if (y < 0)
+			std::cout << "(";
+		std::cout  << y;
+		if (y < 0)
+			std::cout << ")\n";
+		else
+			std::cout << endl;
 		std::cout << "                                     => ";
 		std::cout << equation.indeterminate_symbol << "2= "
 			<< fraction_str(to_fraction(x - y)) << endl;
@@ -112,15 +155,25 @@ static void	print_solution_fraction(t_equation equation, double	discriminant)
 		std::cout << equation.indeterminate_symbol << "1= "
 			<< (x != .0 ? fraction_str(to_fraction(x)) : "");
 		if (y != 0)
-			std::cout << (x != .0 ? " + " : "") 
-				<< "i * " << fraction_str(to_fraction(ft_dabs(y))) << endl;
+			std::cout << (x != .0 ? " + " : "") << "i * ";
+		if (y < 0)
+			std::cout << "(";
+		std::cout  << fraction_str(to_fraction(y));
+		if (y < 0)
+			std::cout << ")\n";
 		std::cout << endl << equation.indeterminate_symbol 
 			<< "2= -b / (2 * a) - i * sqrt(abs(Δ)) / (2 * a) => ";
 		std::cout << equation.indeterminate_symbol << "2= " 
 			<< (x != .0 ? fraction_str(to_fraction(x)) : "");
 		if (y != 0)
-			std::cout << (x != .0 ? " - " : "")
-				<< "i * " << fraction_str(to_fraction(ft_dabs(y))) << endl;
+			std::cout << (x != .0 ? " - " : "") << "i * ";
+		if (y < 0)
+			std::cout << "(";
+		std::cout  << fraction_str(to_fraction(y));
+		if (y < 0)
+			std::cout << ")\n";
+		else 
+			std::cout << endl;
 	}
 }
 

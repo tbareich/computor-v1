@@ -6,7 +6,7 @@
 /*   By: tbareich <tbareich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/31 10:24:52 by tbareich          #+#    #+#             */
-/*   Updated: 2022/04/17 01:52:40 by tbareich         ###   ########.fr       */
+/*   Updated: 2022/04/19 07:00:13 by tbareich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ static void	print_equation(t_equation equation)
 
 	first_constant = 1;
 	std::cout << "\n-- Reduced form: ";
-	for (int i = 0; i < 3; ++i)
+	for (int i = 0; i < (int)equation.coeffs.size(); ++i)
 	{
 		if (!first_constant)
 		{
@@ -38,19 +38,19 @@ static void	print_equation(t_equation equation)
 		}
 	}
 	if (first_constant)
-		std::cout << "0 * " << equation.indeterminate_symbol << " ^ (−∞)";
+		std::cout << "0 * " << (equation.indeterminate_symbol != 0
+		? equation.indeterminate_symbol : 'X') << " ^ (−∞)";
 	std::cout << " = 0" << endl << "\n-- Polynomial degree: ";
 	if (equation.degree >= 0)
 		std::cout << equation.degree << "\n\n";
 	else
 		std::cout << "−∞\n\n";
+	if (equation.degree > 2)
+		error(DEGREE_LIMITS_ERROR);
 }
 
 static void	init_equation(t_equation *equation)
 {
-	equation->coeffs[0] = .0;
-	equation->coeffs[1] = .0;
-	equation->coeffs[2] = .0;
 	equation->degree = -1;
 	equation->indeterminate_symbol = 0;
 	equation->position = LEFT;

@@ -6,7 +6,7 @@
 /*   By: tbareich <tbareich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/31 09:58:44 by tbareich          #+#    #+#             */
-/*   Updated: 2022/04/16 12:48:09 by tbareich         ###   ########.fr       */
+/*   Updated: 2022/04/19 06:23:10 by tbareich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ extern "C"
 */
 typedef struct	s_equation
 {
-	double	coeffs[3];
+	std::vector<double>	coeffs;
 	int		degree;
 	char	indeterminate_symbol;
 	char	position;

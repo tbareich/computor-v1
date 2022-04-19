@@ -16,7 +16,7 @@ void	solve(t_equation equation, int options)
 {
 	t_fraction fraction;
 	
-	if (equation.degree == -1)
+	if (equation.degree < 0)
 		std::cout << "This problem has an infinite number of solutions.\n";
 	else if (equation.degree == 0)
 		std::cout << "This problem have no solution." << endl;
